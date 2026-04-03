@@ -7,16 +7,6 @@
   "def"
   "pub"
   "use"
-  "inline"
-  "builtin"
-  "return"
-  "break"
-  "continue"
-  "loop"
-  "doc"
-  "if"
-  "when"
-  "cases"
 ] @keyword
 
 ; Boolean literals
@@ -71,41 +61,6 @@
 ; Parameters
 (parameter
   (identifier) @variable.parameter)
-
-; Operators
-[
-  "="
-  "+"
-  "-"
-  "*"
-  "/"
-  "%"
-  "=="
-  "!="
-  "<"
-  ">"
-  "<="
-  ">="
-  "&&"
-  "||"
-  "!"
-  ".."
-  "?."
-  "?:"
-  "!!"
-  ":"
-  "|>"
-  "->"
-] @operator
-
-; Punctuation
-[
-  "(" ")"
-  "[" "]"
-  "{" "}"
-  ","
-  ";"
-] @punctuation.delimiter
 
 ; Atoms
 (atom) @label
