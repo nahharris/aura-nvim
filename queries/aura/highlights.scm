@@ -1,77 +1,80 @@
-; Keywords
-[
-  "let"
-  "const"
-  "defn"
-  "defmacro"
-  "def"
-  "pub"
-  "use"
-] @keyword
-
-; Boolean literals
-[
-  "true"
-  "false"
-] @boolean
-
-; Type keywords
-[
-  "union"
-  "enum"
-  "interface"
-  "Func"
-] @keyword.type
-
-; Comments
 (comment) @comment
-
-; String literals
 (string) @string
 (string_content) @string
 (escape_sequence) @string.escape
-(interpolation) @embedded
-
-; Numbers
+(interpolation) @conceal
+(char) @string.special
 (integer) @number
 (float) @number.float
+(alias_value) @constant.builtin
 
-; Identifiers
-(identifier) @variable
+(function_declaration
+  name: (identifier) @function)
 
-; Type identifiers
-(type_identifier) @type
+(macro_declaration
+  name: (identifier) @function.macro)
 
-; Function calls
+(assignment_declaration
+  name: (identifier) @variable)
+
 (call_expression
-  (identifier) @function.call)
+  callee: (identifier) @function.call)
 
-; Function definitions
-(fn_decl
-  (identifier) @function)
+(member_expression
+  field: (identifier) @property)
 
-; Macro definitions
-(macro_decl
-  (identifier) @function.macro)
-
-; Type definitions
-(def_decl
-  (identifier) @type)
-
-; Parameters
 (parameter
-  (identifier) @variable.parameter)
+  name: (identifier) @variable.parameter)
 
-; Atoms
-(atom) @label
+(static_parameter
+  name: (identifier) @type.definition)
 
-; Dot identifiers
-(dot_identifier) @constructor
+(named_type
+  name: (identifier) @type)
 
-; Named arguments
-(named_argument
-  (identifier) @property)
+(dot_identifier
+  name: (identifier) @constructor)
 
-; Field access
-(field_access
-  (identifier) @property)
+(dot_pattern
+  name: (identifier) @constructor)
+
+(struct_field
+  name: (identifier) @property)
+
+(use_field
+  local: (identifier) @variable)
+
+(use_field
+  source: (identifier) @variable)
+
+[
+  "def"
+  "defmacro"
+  "use"
+  "doc"
+  "label"
+  "static"
+] @keyword
+
+[
+  "="
+  "->"
+  ":"
+  "."
+  ","
+  ";"
+  "||"
+  "&&"
+  "=="
+  "!="
+  "<"
+  ">"
+  "<="
+  ">="
+  "+"
+  "-"
+  "*"
+  "/"
+  "%"
+  ".."
+] @operator

@@ -1,14 +1,11 @@
-; Function objects
-(fn_decl) @function.outer
+(function_declaration) @function.outer
 
-(fn_decl
-  (block) @function.inner)
+(function_declaration
+  body: (block_expression) @function.inner)
 
-; Macro objects
-(macro_decl) @class.outer
+(macro_declaration) @class.outer
 
-(macro_decl
-  (block) @class.inner)
+(macro_declaration
+  body: (block_expression) @class.inner)
 
-; Parameter objects
 (parameter) @parameter.outer

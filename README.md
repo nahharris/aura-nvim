@@ -1,13 +1,13 @@
 # aura-nvim
 
-Aura language support for Neovim.
+Aura and AUON language support for Neovim.
 
 ## Features
 
-- Filetype detection for `*.aura`
+- Filetype detection for `*.aura` and `*.auon`
 - Tree-sitter highlight queries
 - Basic folds and indentation queries
-- Basic textobjects (`function`, `class`, `parameter`)
+- Basic textobjects (`function`, `class`, `parameter`) for Aura
 
 ## Install (lazy.nvim)
 
@@ -33,6 +33,8 @@ parser_config.aura = {
   },
   filetype = "aura",
 }
+
+vim.treesitter.language.register("aura", "auon")
 ```
 
 Then install/update parser:
@@ -43,7 +45,7 @@ Then install/update parser:
 
 ## Verify
 
-- `:set filetype?` should show `filetype=aura`
+- `:set filetype?` should show `filetype=aura` or `filetype=auon`
 - `:TSInstallInfo` should include `aura`
 - `:InspectTree` should show Aura syntax nodes
 
