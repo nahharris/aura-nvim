@@ -63,7 +63,7 @@ require("lspconfig").aura = {
   default_config = {
     cmd = { "aura-lsp" },
     filetypes = { "aura" },
-    root_dir = require("lspconfig.util").root_pattern("build.aura", ".git"),
+    root_dir = require("lspconfig.util").root_pattern("project.auon", ".git"),
     single_file_support = true,
   },
 }
@@ -80,7 +80,7 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.lsp.start({
       name = "aura-lsp",
       cmd = { "aura-lsp" },
-      root_dir = vim.fs.root(args.buf, { "build.aura", ".git" }),
+      root_dir = vim.fs.root(args.buf, { "project.auon", ".git" }),
     })
   end,
 })
