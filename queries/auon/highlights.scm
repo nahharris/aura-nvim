@@ -10,6 +10,9 @@
 (dot_identifier
   name: (identifier) @constructor)
 
+(auon_dot_identifier
+  name: (identifier) @constructor)
+
 (struct_field
   name: (identifier) @property)
 
